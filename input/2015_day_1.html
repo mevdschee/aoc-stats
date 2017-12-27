@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Leaderboard - Advent of Code 2015</title>
+<!--[if lt IE 9]><script src="/static/html5.js"></script><![endif]-->
+<link href='//fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/static/style.css?12"/>
+<link rel="stylesheet alternate" type="text/css" href="/static/highcontrast.css?0" title="High Contrast"/>
+<link rel="shortcut icon" href="/favicon.ico?2"/>
+</head><!--
+
+
+
+
+Oh, hello!  Funny seeing you here.
+
+I appreciate your enthusiasm, but you aren't going to find much down here.
+There certainly aren't clues to any of the puzzles.  The best surprises don't
+even appear in the source until you unlock them for real.
+
+Please be careful with automated requests; I'm not Google, and I can only take
+so much traffic.  Please be considerate so that everyone gets to play.
+
+If you're curious about how Advent of Code works, it's running on some custom
+Perl code. Other than a few integrations (auth, analytics, ads, social media),
+I built the whole thing myself, including the design, animations, prose, and
+all of the puzzles.
+
+The puzzles probably took the longest; the easiest ones took an hour or two
+each, but the harder ones took 4-5 hours, and a few even longer than that. A
+lot of effort went into building this thing - I hope you're enjoying playing it
+as much as I enjoyed making it for you!
+
+If you'd like to hang out, I'm @ericwastl on Twitter.
+
+- Eric Wastl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+<body>
+<header><div><h1 class="title-global"><a href="/">Advent of Code</a></h1><nav><ul><li><a href="/2015/about">[About]</a></li><li><a href="/2015/support">[AoC++]</a></li><li><a href="/2015/events">[Events]</a></li><li><a href="/2015/auth/login">[Log In]</a></li></ul></nav></div><div><h1 class="title-event">&nbsp;<span class="title-event-wrap">{'year':</span><a href="/2015">2015</a><span class="title-event-wrap">}</span></h1><nav><ul><li><a href="/2015">[Calendar]</a></li><li><a href="/2015/leaderboard">[Leaderboard]</a></li><li><a href="/2015/stats">[Stats]</a></li><li><a href="/2015/sponsors">[Sponsors]</a></li></ul></nav></div></header>
+
+<div id="sidebar">
+<p class="quiet">By popular demand, there are now AoC-themed objects available (until Jan. 3rd)! Get them shipped <a href="https://teespring.com/advent-of-code" target="_blank">from the US</a> or <a href="https://teespring.com/advent-of-code-eu" target="_blank">from Europe</a>.</p>
+
+</div><!--/sidebar-->
+
+<main>
+<p>Per Day: <span class="leaderboard-daylinks"><a href="/2015/leaderboard/day/1" class="leaderboard-daylinks-selected">1</a> <a href="/2015/leaderboard/day/2">2</a> <a href="/2015/leaderboard/day/3">3</a> <a href="/2015/leaderboard/day/4">4</a> <a href="/2015/leaderboard/day/5">5</a> <a href="/2015/leaderboard/day/6">6</a> <a href="/2015/leaderboard/day/7">7</a> <a href="/2015/leaderboard/day/8">8</a> <a href="/2015/leaderboard/day/9">9</a> <a href="/2015/leaderboard/day/10">10</a> <a href="/2015/leaderboard/day/11">11</a> <a href="/2015/leaderboard/day/12">12</a> <a href="/2015/leaderboard/day/13">13</a> <a href="/2015/leaderboard/day/14">14</a> <a href="/2015/leaderboard/day/15">15</a> <a href="/2015/leaderboard/day/16">16</a> <a href="/2015/leaderboard/day/17">17</a> <a href="/2015/leaderboard/day/18">18</a> <a href="/2015/leaderboard/day/19">19</a> <a href="/2015/leaderboard/day/20">20</a> <a href="/2015/leaderboard/day/21">21</a> <a href="/2015/leaderboard/day/22">22</a> <a href="/2015/leaderboard/day/23">23</a> <a href="/2015/leaderboard/day/24">24</a> <a href="/2015/leaderboard/day/25">25</a></span></p>
+<p>First hundred users to get <span class="leaderboard-daydesc-both">both stars</span> on Day 1:</p><div class="leaderboard-entry"><span class="leaderboard-position">  1)</span> <span class="leaderboard-time">Dec 01  00:10:55</span>  <a href="https://github.com/Aneurysm9" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars0.githubusercontent.com/u/473616?v=4" height="20"/></span>Aneurysm9</a> <a href="/2015/support" class="supporter" title="Advent of Code Supporter">(AoC++)</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  2)</span> <span class="leaderboard-time">Dec 01  00:16:22</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>Joel Lathrop</div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  3)</span> <span class="leaderboard-time">Dec 01  00:24:11</span>  <a href="https://plus.google.com/+IgorNaverniouk" target="_blank"><span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-rfcpAVcvHhg/AAAAAAAAAAI/AAAAAAAAEXM/_17uLe1IxZI/photo.jpg" height="20"/></span>Igor Naverniouk</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  4)</span> <span class="leaderboard-time">Dec 01  00:24:47</span>  <a href="https://github.com/coreymaher" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars3.githubusercontent.com/u/100885?v=4" height="20"/></span>Corey Maher</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  5)</span> <span class="leaderboard-time">Dec 01  00:24:54</span>  <span class="leaderboard-userphoto"><img src="https://avatars2.githubusercontent.com/u/1391698?v=4" height="20"/></span>Joe LeGasse</div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  6)</span> <span class="leaderboard-time">Dec 01  00:28:52</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #286)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  7)</span> <span class="leaderboard-time">Dec 01  00:31:05</span>  <span class="leaderboard-userphoto"></span>widgeonway</div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  8)</span> <span class="leaderboard-time">Dec 01  00:31:17</span>  <a href="https://github.com/cristianradu" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/603676?v=3" height="20"/></span>Cristian Radu</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  9)</span> <span class="leaderboard-time">Dec 01  00:32:00</span>  <a href="https://plus.google.com/112054380037948918542" target="_blank"><span class="leaderboard-userphoto"><img src="https://lh5.googleusercontent.com/-t4ZN-6ObQbc/AAAAAAAAAAI/AAAAAAAAAEc/O1S00MGGEjU/photo.jpg" height="20"/></span>Stuart MacGillivray</a> <a href="/2015/support" class="supporter" title="Advent of Code Supporter">(AoC++)</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 10)</span> <span class="leaderboard-time">Dec 01  00:32:21</span>  <a href="https://github.com/NoahPena" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/5727823?v=3" height="20"/></span>Noah Pena</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 11)</span> <span class="leaderboard-time">Dec 01  00:34:52</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-9xcX8tvdOfw/AAAAAAAAAAI/AAAAAAAAAhs/KpLo4w03zeU/photo.jpg" height="20"/></span>Naresh reddy</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 12)</span> <span class="leaderboard-time">Dec 01  00:34:53</span>  <span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/378800000856502239/f22DmFrl.jpeg" height="20"/></span>@mikesmoniker</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 13)</span> <span class="leaderboard-time">Dec 01  00:40:49</span>  <span class="leaderboard-userphoto"><img src="https://avatars0.githubusercontent.com/u/1968865?v=4" height="20"/></span>SeeWhy</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 14)</span> <span class="leaderboard-time">Dec 01  00:42:03</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-VReS2-4zLLg/AAAAAAAAAAI/AAAAAAAAXps/BO088gI7RR8/photo.jpg" height="20"/></span>Joshua Orvis</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 15)</span> <span class="leaderboard-time">Dec 01  00:43:53</span>  <span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/1420012935/IMG_0184.jpg" height="20"/></span>@jan_walther</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 16)</span> <span class="leaderboard-time">Dec 01  00:45:25</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #296)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 17)</span> <span class="leaderboard-time">Dec 01  00:46:36</span>  <a href="https://github.com/KamChanLiu" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/437798?v=3" height="20"/></span>KamChanLiu</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 18)</span> <span class="leaderboard-time">Dec 01  00:47:20</span>  <a href="https://github.com/darinc" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/469493?v=3" height="20"/></span>darinc</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 19)</span> <span class="leaderboard-time">Dec 01  00:55:07</span>  <span class="leaderboard-userphoto"><img src="https://avatars1.githubusercontent.com/u/943597?v=4" height="20"/></span>icholy</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 20)</span> <span class="leaderboard-time">Dec 01  00:59:56</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #316)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 21)</span> <span class="leaderboard-time">Dec 01  01:06:17</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1762224?v=3" height="20"/></span>tobiowo</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 22)</span> <span class="leaderboard-time">Dec 01  01:08:43</span>  <a href="https://github.com/jkbockstael" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1963594?v=3" height="20"/></span>Jean-Karim Bockstael</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 23)</span> <span class="leaderboard-time">Dec 01  01:10:52</span>  <a href="https://github.com/danieljin" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3216976?v=3" height="20"/></span>danieljin</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 24)</span> <span class="leaderboard-time">Dec 01  01:12:10</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-tscolodLR90/AAAAAAAAAAI/AAAAAAAAABQ/a40rUhAWcSk/photo.jpg" height="20"/></span>Matthew Semeniuk</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 25)</span> <span class="leaderboard-time">Dec 01  01:12:47</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-Np2aaHGF8tI/AAAAAAAAAAI/AAAAAAAAC5M/PZYfa28dJ1c/photo.jpg" height="20"/></span>Caleb Brown</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 26)</span> <span class="leaderboard-time">Dec 01  01:16:21</span>  <a href="https://github.com/favrik" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/57216?v=3" height="20"/></span>favrik</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 27)</span> <span class="leaderboard-time">Dec 01  01:20:39</span>  <a href="https://github.com/randreucetti" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars3.githubusercontent.com/u/7765549?v=4" height="20"/></span>randreucetti</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 28)</span> <span class="leaderboard-time">Dec 01  01:26:25</span>  <a href="https://github.com/jhalley" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/30036?v=3" height="20"/></span>jhalley</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 29)</span> <span class="leaderboard-time">Dec 01  01:26:59</span>  <a href="https://github.com/malisper" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/6210567?v=3" height="20"/></span>malisper</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 30)</span> <span class="leaderboard-time">Dec 01  01:27:38</span>  <span class="leaderboard-userphoto"><img src="https://avatars0.githubusercontent.com/u/2281166?v=4" height="20"/></span>Retsam</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 31)</span> <span class="leaderboard-time">Dec 01  01:32:49</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #339)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 32)</span> <span class="leaderboard-time">Dec 01  01:37:51</span>  <a href="https://github.com/xcapped" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3938232?v=3" height="20"/></span>jacob</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 33)</span> <span class="leaderboard-time">Dec 01  01:37:59</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #362)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 34)</span> <span class="leaderboard-time">Dec 01  01:38:57</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/12876762?v=3" height="20"/></span>Zopherus</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 35)</span> <span class="leaderboard-time">Dec 01  01:46:02</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #369)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 36)</span> <span class="leaderboard-time">Dec 01  01:46:12</span>  <span class="leaderboard-userphoto"><img src="https://avatars3.githubusercontent.com/u/1497826?v=4" height="20"/></span>NPN</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 37)</span> <span class="leaderboard-time">Dec 01  01:47:01</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-m8Pm3zFBl6E/AAAAAAAAAAI/AAAAAAAAAXM/hyPz8SQlrxA/photo.jpg" height="20"/></span>Tommy Chanthaboune</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 38)</span> <span class="leaderboard-time">Dec 01  01:47:02</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #360)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 39)</span> <span class="leaderboard-time">Dec 01  01:49:14</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3816519?v=3" height="20"/></span>lazandrei19</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 40)</span> <span class="leaderboard-time">Dec 01  01:49:29</span>  <span class="leaderboard-userphoto"></span>stemog</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 41)</span> <span class="leaderboard-time">Dec 01  01:49:56</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-x_-XRHfnY0M/AAAAAAAAAAI/AAAAAAAADvU/yfVBOlvL4hM/photo.jpg" height="20"/></span>Taylor Growden (my-blue-snog-box)</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 42)</span> <span class="leaderboard-time">Dec 01  01:50:11</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-yCoUtMJ10hY/AAAAAAAAAAI/AAAAAAAAAqo/cKy8CA-8yIQ/photo.jpg" height="20"/></span>Spencer Pollock</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 43)</span> <span class="leaderboard-time">Dec 01  01:51:04</span>  <a href="https://github.com/UWarbs" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/6990603?v=3" height="20"/></span>UWarbs</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 44)</span> <span class="leaderboard-time">Dec 01  01:53:41</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/8838401?v=3" height="20"/></span>owenso</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 45)</span> <span class="leaderboard-time">Dec 01  01:53:49</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3580368?v=3" height="20"/></span>gintrator</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 46)</span> <span class="leaderboard-time">Dec 01  01:53:57</span>  <span class="leaderboard-userphoto"></span>missblit</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 47)</span> <span class="leaderboard-time">Dec 01  01:56:24</span>  <a href="https://www.reddit.com/u/JoggingThruThe6" target="_blank"><span class="leaderboard-userphoto"></span>JoggingThruThe6</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 48)</span> <span class="leaderboard-time">Dec 01  01:58:42</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-oOczxXXOdTA/AAAAAAAAAAI/AAAAAAAAFIs/3IofIi7WpJY/photo.jpg" height="20"/></span>Clifford Duke</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 49)</span> <span class="leaderboard-time">Dec 01  01:59:20</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #384)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 50)</span> <span class="leaderboard-time">Dec 01  01:59:21</span>  <a href="https://twitter.com/benrwolfram" target="_blank"><span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/628318359080275968/OTM8eGv5.jpg" height="20"/></span>Ben Wolfram</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 51)</span> <span class="leaderboard-time">Dec 01  02:02:55</span>  <span class="leaderboard-userphoto"></span>RakijaH</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 52)</span> <span class="leaderboard-time">Dec 01  02:04:17</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-5IDlA_-gQ38/AAAAAAAAAAI/AAAAAAAAAEE/KD075vDO9vE/photo.jpg" height="20"/></span>Dávid Pörös</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 53)</span> <span class="leaderboard-time">Dec 01  02:04:28</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #398)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 54)</span> <span class="leaderboard-time">Dec 01  02:04:38</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>Juven Ardine</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 55)</span> <span class="leaderboard-time">Dec 01  02:07:30</span>  <span class="leaderboard-userphoto"></span>GrizzlyAdams63</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">Dec 01  02:09:37</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #361)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">Dec 01  02:09:57</span>  <a href="https://plus.google.com/+berkonvo" target="_blank"><span class="leaderboard-userphoto"><img src="https://lh5.googleusercontent.com/-vLpkRop-PFY/AAAAAAAAAAI/AAAAAAAAAYs/d2dJ6v0QWS8/photo.jpg" height="20"/></span>Berk Alyamach</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">Dec 01  02:11:19</span>  <a href="https://github.com/slapec" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/626130?v=3" height="20"/></span>slapec</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">Dec 01  02:16:12</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>Georg Metzger</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">Dec 01  02:17:00</span>  <span class="leaderboard-userphoto"></span>wrzazg</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 61)</span> <span class="leaderboard-time">Dec 01  02:18:37</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/11417268?v=3" height="20"/></span>t2davis</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 62)</span> <span class="leaderboard-time">Dec 01  02:20:49</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/6622091?v=3" height="20"/></span>Rijir</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">Dec 01  02:21:18</span>  <span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/551418586627989505/bMcZPVZ5.jpeg" height="20"/></span>Grayden Hormes</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 64)</span> <span class="leaderboard-time">Dec 01  02:24:10</span>  <a href="https://github.com/ZephireNZ" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1644496?v=3" height="20"/></span>Brynley McDonald</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 65)</span> <span class="leaderboard-time">Dec 01  02:25:04</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #447)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 66)</span> <span class="leaderboard-time">Dec 01  02:28:21</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3076257?v=3" height="20"/></span>juno1990ahn</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 67)</span> <span class="leaderboard-time">Dec 01  02:29:08</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/4925391?v=3" height="20"/></span>Quadrophone</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 68)</span> <span class="leaderboard-time">Dec 01  02:31:36</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #476)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 69)</span> <span class="leaderboard-time">Dec 01  02:32:02</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #473)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 70)</span> <span class="leaderboard-time">Dec 01  02:32:54</span>  <span class="leaderboard-userphoto"></span>MonkeyBrain4U</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 71)</span> <span class="leaderboard-time">Dec 01  02:35:32</span>  <span class="leaderboard-userphoto"></span>dougg3</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 72)</span> <span class="leaderboard-time">Dec 01  02:35:40</span>  <span class="leaderboard-userphoto"></span>Flnz</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 73)</span> <span class="leaderboard-time">Dec 01  02:36:00</span>  <span class="leaderboard-userphoto"></span>AlliMcPalli</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 74)</span> <span class="leaderboard-time">Dec 01  02:36:16</span>  <a href="https://www.reddit.com/u/shamittomar" target="_blank"><span class="leaderboard-userphoto"></span>shamittomar</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 75)</span> <span class="leaderboard-time">Dec 01  02:36:23</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #482)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 76)</span> <span class="leaderboard-time">Dec 01  02:39:28</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #466)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 77)</span> <span class="leaderboard-time">Dec 01  02:40:07</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-ONqU-Dclkq0/AAAAAAAAAAI/AAAAAAAAKi4/ASOb-COr4m8/photo.jpg" height="20"/></span>Joe Linhoff</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 78)</span> <span class="leaderboard-time">Dec 01  02:43:04</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #500)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 79)</span> <span class="leaderboard-time">Dec 01  02:44:01</span>  <span class="leaderboard-userphoto"></span>SSteel2</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 80)</span> <span class="leaderboard-time">Dec 01  02:44:36</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-AD5XqFWt0kU/AAAAAAAAAAI/AAAAAAAALtg/lkqD8g4yLOs/photo.jpg" height="20"/></span>Pavan Nikhilesh</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 81)</span> <span class="leaderboard-time">Dec 01  02:44:42</span>  <span class="leaderboard-userphoto"></span>blindwaves</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 82)</span> <span class="leaderboard-time">Dec 01  02:44:53</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>Henri Erilaid</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 83)</span> <span class="leaderboard-time">Dec 01  02:45:21</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-T3O7v6LTFC8/AAAAAAAAAAI/AAAAAAAAAAA/Dk19B_jcVBo/photo.jpg" height="20"/></span>Tony Weston</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 84)</span> <span class="leaderboard-time">Dec 01  02:47:08</span>  <a href="https://github.com/anthonynguyen" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars1.githubusercontent.com/u/1484987?v=4" height="20"/></span>Anthony Nguyen</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 85)</span> <span class="leaderboard-time">Dec 01  02:49:18</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1982566?v=3" height="20"/></span>sharmashobhit</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 86)</span> <span class="leaderboard-time">Dec 01  02:49:22</span>  <a href="https://github.com/zyklus" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/320562?v=3" height="20"/></span>zyklus</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 87)</span> <span class="leaderboard-time">Dec 01  02:52:23</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-Uy2hprXanlA/AAAAAAAAAAI/AAAAAAAAAD4/aMYHqds8UjQ/photo.jpg" height="20"/></span>Dexter John Chua</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 88)</span> <span class="leaderboard-time">Dec 01  02:52:43</span>  <a href="https://github.com/vgel" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/980096?v=3" height="20"/></span>vgel</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 89)</span> <span class="leaderboard-time">Dec 01  02:54:06</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/6767588?v=3" height="20"/></span>SpinCobra</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 90)</span> <span class="leaderboard-time">Dec 01  02:54:35</span>  <a href="https://github.com/FredrikAugust" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/7691547?v=3" height="20"/></span>FredrikAugust</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 91)</span> <span class="leaderboard-time">Dec 01  02:56:14</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1141040?v=3" height="20"/></span>Tyler Kelley</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 92)</span> <span class="leaderboard-time">Dec 01  02:57:00</span>  <span class="leaderboard-userphoto"><img src="https://lh5.googleusercontent.com/-JpZ2xesURn8/AAAAAAAAAAI/AAAAAAAAASo/SP94jry9jho/photo.jpg" height="20"/></span>Alexandr Raskin</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">Dec 01  02:57:32</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #524)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">Dec 01  02:57:48</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/9649003?v=3" height="20"/></span>SirSoltex</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">Dec 01  02:58:19</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>mikro86000</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">Dec 01  03:02:16</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #525)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">Dec 01  03:02:38</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-V7BvqOBzNK0/AAAAAAAAAAI/AAAAAAAAATU/tujjPVBu1wA/photo.jpg" height="20"/></span>Seshadri R</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">Dec 01  03:04:01</span>  <a href="https://github.com/osguosgu" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3589197?v=3" height="20"/></span>osguosgu</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">Dec 01  03:05:11</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>Robert Mendel</div>
+<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">Dec 01  03:06:16</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #540)</span></div><p>First hundred users to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p><div class="leaderboard-entry"><span class="leaderboard-position">  1)</span> <span class="leaderboard-time">Dec 01  00:05:38</span>  <a href="https://github.com/Aneurysm9" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars0.githubusercontent.com/u/473616?v=4" height="20"/></span>Aneurysm9</a> <a href="/2015/support" class="supporter" title="Advent of Code Supporter">(AoC++)</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  2)</span> <span class="leaderboard-time">Dec 01  00:05:40</span>  <a href="https://twitter.com/segfaultvicta" target="_blank"><span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/64682225/ohshit.jpg" height="20"/></span>@segfaultvicta</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  3)</span> <span class="leaderboard-time">Dec 01  00:07:49</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>Tyrell Neufeld</div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  4)</span> <span class="leaderboard-time">Dec 01  00:08:01</span>  <a href="https://github.com/cristianradu" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/603676?v=3" height="20"/></span>Cristian Radu</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  5)</span> <span class="leaderboard-time">Dec 01  00:08:19</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>Joel Lathrop</div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  6)</span> <span class="leaderboard-time">Dec 01  00:16:23</span>  <a href="https://plus.google.com/112054380037948918542" target="_blank"><span class="leaderboard-userphoto"><img src="https://lh5.googleusercontent.com/-t4ZN-6ObQbc/AAAAAAAAAAI/AAAAAAAAAEc/O1S00MGGEjU/photo.jpg" height="20"/></span>Stuart MacGillivray</a> <a href="/2015/support" class="supporter" title="Advent of Code Supporter">(AoC++)</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  7)</span> <span class="leaderboard-time">Dec 01  00:16:41</span>  <a href="https://github.com/coreymaher" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars3.githubusercontent.com/u/100885?v=4" height="20"/></span>Corey Maher</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  8)</span> <span class="leaderboard-time">Dec 01  00:16:52</span>  <span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/3737728683/4a151f3c3bd947fcce4120ace84209f7.jpeg" height="20"/></span>@RedaReinhart</div>
+<div class="leaderboard-entry"><span class="leaderboard-position">  9)</span> <span class="leaderboard-time">Dec 01  00:20:17</span>  <span class="leaderboard-userphoto"><img src="https://avatars2.githubusercontent.com/u/1391698?v=4" height="20"/></span>Joe LeGasse</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 10)</span> <span class="leaderboard-time">Dec 01  00:21:38</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #288)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 11)</span> <span class="leaderboard-time">Dec 01  00:22:20</span>  <a href="https://plus.google.com/+IgorNaverniouk" target="_blank"><span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-rfcpAVcvHhg/AAAAAAAAAAI/AAAAAAAAEXM/_17uLe1IxZI/photo.jpg" height="20"/></span>Igor Naverniouk</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 12)</span> <span class="leaderboard-time">Dec 01  00:26:49</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #286)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 13)</span> <span class="leaderboard-time">Dec 01  00:29:02</span>  <a href="https://github.com/NoahPena" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/5727823?v=3" height="20"/></span>Noah Pena</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 14)</span> <span class="leaderboard-time">Dec 01  00:29:23</span>  <span class="leaderboard-userphoto"></span>widgeonway</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 15)</span> <span class="leaderboard-time">Dec 01  00:30:41</span>  <span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/378800000856502239/f22DmFrl.jpeg" height="20"/></span>@mikesmoniker</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 16)</span> <span class="leaderboard-time">Dec 01  00:32:26</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-9xcX8tvdOfw/AAAAAAAAAAI/AAAAAAAAAhs/KpLo4w03zeU/photo.jpg" height="20"/></span>Naresh reddy</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 17)</span> <span class="leaderboard-time">Dec 01  00:36:42</span>  <span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/1420012935/IMG_0184.jpg" height="20"/></span>@jan_walther</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 18)</span> <span class="leaderboard-time">Dec 01  00:37:52</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #296)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 19)</span> <span class="leaderboard-time">Dec 01  00:37:52</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-VReS2-4zLLg/AAAAAAAAAAI/AAAAAAAAXps/BO088gI7RR8/photo.jpg" height="20"/></span>Joshua Orvis</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 20)</span> <span class="leaderboard-time">Dec 01  00:38:08</span>  <span class="leaderboard-userphoto"><img src="https://avatars0.githubusercontent.com/u/1968865?v=4" height="20"/></span>SeeWhy</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 21)</span> <span class="leaderboard-time">Dec 01  00:42:02</span>  <a href="https://github.com/KamChanLiu" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/437798?v=3" height="20"/></span>KamChanLiu</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 22)</span> <span class="leaderboard-time">Dec 01  00:42:54</span>  <a href="https://github.com/darinc" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/469493?v=3" height="20"/></span>darinc</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 23)</span> <span class="leaderboard-time">Dec 01  00:43:07</span>  <a href="https://www.reddit.com/u/alpoe" target="_blank"><span class="leaderboard-userphoto"></span>alpoe</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 24)</span> <span class="leaderboard-time">Dec 01  00:47:09</span>  <span class="leaderboard-userphoto"><img src="https://avatars1.githubusercontent.com/u/943597?v=4" height="20"/></span>icholy</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 25)</span> <span class="leaderboard-time">Dec 01  00:54:40</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #316)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 26)</span> <span class="leaderboard-time">Dec 01  01:03:50</span>  <a href="https://www.reddit.com/u/JoggingThruThe6" target="_blank"><span class="leaderboard-userphoto"></span>JoggingThruThe6</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 27)</span> <span class="leaderboard-time">Dec 01  01:04:23</span>  <a href="https://github.com/jkbockstael" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1963594?v=3" height="20"/></span>Jean-Karim Bockstael</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 28)</span> <span class="leaderboard-time">Dec 01  01:04:25</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-Np2aaHGF8tI/AAAAAAAAAAI/AAAAAAAAC5M/PZYfa28dJ1c/photo.jpg" height="20"/></span>Caleb Brown</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 29)</span> <span class="leaderboard-time">Dec 01  01:04:31</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1762224?v=3" height="20"/></span>tobiowo</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 30)</span> <span class="leaderboard-time">Dec 01  01:07:08</span>  <a href="https://github.com/danieljin" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3216976?v=3" height="20"/></span>danieljin</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 31)</span> <span class="leaderboard-time">Dec 01  01:08:09</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-tscolodLR90/AAAAAAAAAAI/AAAAAAAAABQ/a40rUhAWcSk/photo.jpg" height="20"/></span>Matthew Semeniuk</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 32)</span> <span class="leaderboard-time">Dec 01  01:14:39</span>  <a href="https://github.com/favrik" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/57216?v=3" height="20"/></span>favrik</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 33)</span> <span class="leaderboard-time">Dec 01  01:16:06</span>  <a href="https://github.com/jhalley" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/30036?v=3" height="20"/></span>jhalley</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 34)</span> <span class="leaderboard-time">Dec 01  01:17:40</span>  <a href="https://github.com/randreucetti" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars3.githubusercontent.com/u/7765549?v=4" height="20"/></span>randreucetti</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 35)</span> <span class="leaderboard-time">Dec 01  01:18:56</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #339)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 36)</span> <span class="leaderboard-time">Dec 01  01:20:03</span>  <a href="https://plus.google.com/+berkonvo" target="_blank"><span class="leaderboard-userphoto"><img src="https://lh5.googleusercontent.com/-vLpkRop-PFY/AAAAAAAAAAI/AAAAAAAAAYs/d2dJ6v0QWS8/photo.jpg" height="20"/></span>Berk Alyamach</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 37)</span> <span class="leaderboard-time">Dec 01  01:20:16</span>  <span class="leaderboard-userphoto"><img src="https://avatars0.githubusercontent.com/u/2281166?v=4" height="20"/></span>Retsam</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 38)</span> <span class="leaderboard-time">Dec 01  01:23:48</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #345)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 39)</span> <span class="leaderboard-time">Dec 01  01:24:15</span>  <a href="https://github.com/malisper" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/6210567?v=3" height="20"/></span>malisper</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 40)</span> <span class="leaderboard-time">Dec 01  01:25:09</span>  <a href="https://github.com/xcapped" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3938232?v=3" height="20"/></span>jacob</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 41)</span> <span class="leaderboard-time">Dec 01  01:25:53</span>  <a href="https://github.com/richardmiller" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/783827?v=3" height="20"/></span>Richard Miller</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 42)</span> <span class="leaderboard-time">Dec 01  01:26:29</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-jyaaVp8cK-o/AAAAAAAAAAI/AAAAAAAAABk/GNWxR4O_oCU/photo.jpg" height="20"/></span>Jacky Lam</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 43)</span> <span class="leaderboard-time">Dec 01  01:30:27</span>  <a href="https://github.com/jennmat" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/421779?v=3" height="20"/></span>Matt Jennings</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 44)</span> <span class="leaderboard-time">Dec 01  01:34:42</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/12876762?v=3" height="20"/></span>Zopherus</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 45)</span> <span class="leaderboard-time">Dec 01  01:34:52</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #362)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 46)</span> <span class="leaderboard-time">Dec 01  01:35:05</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #361)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 47)</span> <span class="leaderboard-time">Dec 01  01:36:53</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-x_-XRHfnY0M/AAAAAAAAAAI/AAAAAAAADvU/yfVBOlvL4hM/photo.jpg" height="20"/></span>Taylor Growden (my-blue-snog-box)</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 48)</span> <span class="leaderboard-time">Dec 01  01:37:14</span>  <span class="leaderboard-userphoto"><img src="https://lh5.googleusercontent.com/-JpZ2xesURn8/AAAAAAAAAAI/AAAAAAAAASo/SP94jry9jho/photo.jpg" height="20"/></span>Alexandr Raskin</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 49)</span> <span class="leaderboard-time">Dec 01  01:37:44</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #356)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 50)</span> <span class="leaderboard-time">Dec 01  01:38:44</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #369)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 51)</span> <span class="leaderboard-time">Dec 01  01:40:16</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-m8Pm3zFBl6E/AAAAAAAAAAI/AAAAAAAAAXM/hyPz8SQlrxA/photo.jpg" height="20"/></span>Tommy Chanthaboune</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 52)</span> <span class="leaderboard-time">Dec 01  01:41:39</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #360)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 53)</span> <span class="leaderboard-time">Dec 01  01:41:49</span>  <span class="leaderboard-userphoto"></span>stemog</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 54)</span> <span class="leaderboard-time">Dec 01  01:42:36</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3816519?v=3" height="20"/></span>lazandrei19</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 55)</span> <span class="leaderboard-time">Dec 01  01:42:55</span>  <span class="leaderboard-userphoto"><img src="https://avatars3.githubusercontent.com/u/1497826?v=4" height="20"/></span>NPN</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">Dec 01  01:43:41</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/8838401?v=3" height="20"/></span>owenso</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">Dec 01  01:45:44</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-yCoUtMJ10hY/AAAAAAAAAAI/AAAAAAAAAqo/cKy8CA-8yIQ/photo.jpg" height="20"/></span>Spencer Pollock</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">Dec 01  01:47:29</span>  <span class="leaderboard-userphoto"></span>missblit</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">Dec 01  01:48:44</span>  <span class="leaderboard-userphoto"></span>goldemerald</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">Dec 01  01:49:03</span>  <a href="https://github.com/UWarbs" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/6990603?v=3" height="20"/></span>UWarbs</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 61)</span> <span class="leaderboard-time">Dec 01  01:49:57</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #384)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 62)</span> <span class="leaderboard-time">Dec 01  01:50:01</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3580368?v=3" height="20"/></span>gintrator</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">Dec 01  01:51:23</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-oOczxXXOdTA/AAAAAAAAAAI/AAAAAAAAFIs/3IofIi7WpJY/photo.jpg" height="20"/></span>Clifford Duke</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 64)</span> <span class="leaderboard-time">Dec 01  01:53:48</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #398)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 65)</span> <span class="leaderboard-time">Dec 01  01:55:37</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-vW7UXE4ku_A/AAAAAAAAAAI/AAAAAAAAADA/BZO5k1vuu28/photo.jpg" height="20"/></span>Trey Spires</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 66)</span> <span class="leaderboard-time">Dec 01  01:56:22</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>Juven Ardine</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 67)</span> <span class="leaderboard-time">Dec 01  01:56:39</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-uw4ZMxEg_gY/AAAAAAAAAAI/AAAAAAAAAFI/sD8wjI8s3lM/photo.jpg" height="20"/></span>Fredrik Storøy</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 68)</span> <span class="leaderboard-time">Dec 01  01:59:08</span>  <a href="https://twitter.com/benrwolfram" target="_blank"><span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/628318359080275968/OTM8eGv5.jpg" height="20"/></span>Ben Wolfram</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 69)</span> <span class="leaderboard-time">Dec 01  02:01:27</span>  <span class="leaderboard-userphoto"></span>RakijaH</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 70)</span> <span class="leaderboard-time">Dec 01  02:01:29</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-5IDlA_-gQ38/AAAAAAAAAAI/AAAAAAAAAEE/KD075vDO9vE/photo.jpg" height="20"/></span>Dávid Pörös</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 71)</span> <span class="leaderboard-time">Dec 01  02:02:17</span>  <a href="https://github.com/BrantWladichuk" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1362473?v=3" height="20"/></span>Brant Wladichuk</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 72)</span> <span class="leaderboard-time">Dec 01  02:02:57</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #413)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 73)</span> <span class="leaderboard-time">Dec 01  02:02:58</span>  <span class="leaderboard-userphoto"></span>GrizzlyAdams63</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 74)</span> <span class="leaderboard-time">Dec 01  02:06:47</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/11417268?v=3" height="20"/></span>t2davis</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 75)</span> <span class="leaderboard-time">Dec 01  02:07:14</span>  <a href="https://github.com/slapec" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/626130?v=3" height="20"/></span>slapec</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 76)</span> <span class="leaderboard-time">Dec 01  02:10:13</span>  <span class="leaderboard-userphoto"><img src="http://pbs.twimg.com/profile_images/551418586627989505/bMcZPVZ5.jpeg" height="20"/></span>Grayden Hormes</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 77)</span> <span class="leaderboard-time">Dec 01  02:10:53</span>  <span class="leaderboard-userphoto"><img src="https://lh6.googleusercontent.com/-MCjG5tT8Bu4/AAAAAAAAAAI/AAAAAAAAAF4/DLp_PTsMcCE/photo.jpg" height="20"/></span>Derek Knechtel</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 78)</span> <span class="leaderboard-time">Dec 01  02:11:11</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/6622091?v=3" height="20"/></span>Rijir</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 79)</span> <span class="leaderboard-time">Dec 01  02:12:41</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" height="20"/></span>Georg Metzger</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 80)</span> <span class="leaderboard-time">Dec 01  02:12:50</span>  <span class="leaderboard-userphoto"></span>wrzazg</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 81)</span> <span class="leaderboard-time">Dec 01  02:13:07</span>  <span class="leaderboard-userphoto"></span>MonkeyBrain4U</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 82)</span> <span class="leaderboard-time">Dec 01  02:14:31</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #439)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 83)</span> <span class="leaderboard-time">Dec 01  02:14:53</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1141040?v=3" height="20"/></span>Tyler Kelley</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 84)</span> <span class="leaderboard-time">Dec 01  02:15:31</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #447)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 85)</span> <span class="leaderboard-time">Dec 01  02:22:33</span>  <span class="leaderboard-userphoto"><img src="https://lh4.googleusercontent.com/-Uy2hprXanlA/AAAAAAAAAAI/AAAAAAAAAD4/aMYHqds8UjQ/photo.jpg" height="20"/></span>Dexter John Chua</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 86)</span> <span class="leaderboard-time">Dec 01  02:22:36</span>  <a href="https://github.com/ZephireNZ" target="_blank"><span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/1644496?v=3" height="20"/></span>Brynley McDonald</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 87)</span> <span class="leaderboard-time">Dec 01  02:23:24</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/4925391?v=3" height="20"/></span>Quadrophone</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 88)</span> <span class="leaderboard-time">Dec 01  02:26:49</span>  <span class="leaderboard-userphoto"><img src="https://lh3.googleusercontent.com/-AD5XqFWt0kU/AAAAAAAAAAI/AAAAAAAALtg/lkqD8g4yLOs/photo.jpg" height="20"/></span>Pavan Nikhilesh</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 89)</span> <span class="leaderboard-time">Dec 01  02:27:02</span>  <span class="leaderboard-userphoto"><img src="https://avatars.githubusercontent.com/u/3076257?v=3" height="20"/></span>juno1990ahn</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 90)</span> <span class="leaderboard-time">Dec 01  02:28:13</span>  <span class="leaderboard-userphoto"></span>Flnz</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 91)</span> <span class="leaderboard-time">Dec 01  02:29:49</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #476)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 92)</span> <span class="leaderboard-time">Dec 01  02:29:55</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #473)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">Dec 01  02:31:31</span>  <span class="leaderboard-userphoto"></span>SSteel2</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">Dec 01  02:31:40</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #478)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">Dec 01  02:31:58</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #435)</span></div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">Dec 01  02:32:25</span>  <span class="leaderboard-userphoto"><img src="https://avatars3.githubusercontent.com/u/167394?v=4" height="20"/></span>Jonas Bülow</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">Dec 01  02:32:52</span>  <span class="leaderboard-userphoto"></span>dougg3</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">Dec 01  02:32:58</span>  <span class="leaderboard-userphoto"></span>AlliMcPalli</div>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">Dec 01  02:33:08</span>  <a href="https://www.reddit.com/u/shamittomar" target="_blank"><span class="leaderboard-userphoto"></span>shamittomar</a></div>
+<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">Dec 01  02:34:31</span>  <span class="leaderboard-userphoto"></span><span class="leaderboard-anon">(anonymous user #482)</span></div>
+</main>
+
+<!-- ga -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-69522494-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- /ga -->
+</body>
+</html>

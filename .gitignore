@@ -1,0 +1,8 @@
+.classpath
+.project
+bin/
+.vscode
+input/69394.json
+pscores*
+pmedals.*
+pindex.html

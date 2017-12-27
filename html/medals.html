@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+        <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <style>
+
+body {
+    font-family: "Source Code Pro", monospace;
+    font-size: 14pt;
+}
+
+table {
+    color: #ccc;
+    background-color: #0f0f23;
+    font-size: 14pt;
+    padding: 20pt;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    padding: 4px 2px 0px 2px;
+    margin: 2px;
+
+    color: #333;
+    text-align: center;
+    float: left;
+    font: 12px Arial, sans-serif;
+    cursor: default;
+    border: 1px solid #333;
+}
+
+.gold {
+    color: #0f0f23;
+    border: 1px solid #fd5;
+    background-color: #fd5;
+}
+.silver {
+    color: #0f0f23;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+}
+.bronze {
+    color: #0f0f23;
+    border: 1px solid #963;
+    background-color: #963;
+}
+.header {
+    font-size: 10pt;
+    font-family: "Source Code Pro", monospace;
+    text-align: center;
+    color: #00ff00;
+    border: 1px solid #0f0f23;
+    background-color: #0f0f23;
+}
+.title {
+    color: #00ff00;
+    font-weight: bold; 
+}
+.total {
+    float: left;
+    color: #ccc;
+}
+a.supporter {
+    text-decoration: none;
+    color: #ffff66;
+}
+a.supporter:hover {
+    text-decoration: none;
+    color: #ffffcc;
+    text-shadow: 0 0 5px #ffff66;
+}
+</style>
+</head>
+<body>
+        <a href="https://github.com/mevdschee/aoc-stats"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+        <script src="jquery.min.js"></script>
+
+<script>
+function graph(year, data) {
+    var str = "<table>";
+    var n = 1;
+    var header = true;
+    for (var name in data) {
+        if (data.hasOwnProperty(name)) {
+            if (header) {
+                str += "<tr><td colspan=\"2\" class=\"title\">Advent of Code "+year+"</td><td>";
+                for (var i=0;i<data[name].length;i++){
+                    var day = i+1;
+                    str += '<div class="numberCircle header" title="Day '+day+'">'+day+'</div>';
+                }
+                header = false;
+            }
+            var pretty = name.substring(name.indexOf(' ')+1);
+            pretty = pretty.replace("(AoC++)","<a href=\"http://adventofcode.com/"+year+"/support\" class=\"supporter\">(AoC++)</span>");
+            str += "<tr><td>"+n+")</td><td>"+pretty+"</td><td>";
+            var prev = 0;
+            var medals = 0;
+            for (var i=0;i<data[name].length;i++){
+                var medal = data[name][i]
+                if (medal===null) {
+                    str += '<div class="numberCircle"></div>';
+                } else {
+                    var metal;
+                    var pos = medal[0];
+                    switch(pos) {
+                        case 1: metal = "gold"; medals+=1; break;
+                        case 2: metal = "silver"; medals+=1; break;
+                        case 3: metal = "bronze"; medals+=1; break;
+                        default: metal = "none"; break;
+                    }
+                    
+                    var day = i+1;
+                    var sec = medal[1];
+                    str += '<div class="numberCircle '+metal+'" title="'+sec+' seconds">'+pos+'</div>';
+                }
+            }
+            str += '<div class="total" title="Number of medals"> &nbsp;'+medals+'</div>';
+            str += "</td></tr>";
+            n++;
+        }
+    }
+    str += "</table><br/>";
+    $(document.body).append(str);
+}
+
+$.getJSON("medals.json", function( data ) {
+    graph(2017, data[2017]);
+    graph(2016, data[2016]);
+    graph(2015, data[2015]);
+});
+</script>
+</body>
+</html>
