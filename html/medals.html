@@ -127,6 +127,7 @@ function graph(year, data) {
 }
 
 $.getJSON("medals.json", function( data ) {
+    graph(2018, data[2018]);
     graph(2017, data[2017]);
     graph(2016, data[2016]);
     graph(2015, data[2015]);
