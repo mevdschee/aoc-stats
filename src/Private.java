@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class Private {
 
 	public static void main(String[] args) throws IOException {
-		String input = new String(Files.readAllBytes(Paths.get("input/69394.json"))).trim();
+		String input = new String(Files.readAllBytes(Paths.get("input/361157.json"))).trim();
 		JSONObject event = new JSONObject(input);
 		int year = Integer.parseInt(event.getString("event"));
 		JSONObject members = event.getJSONObject("members");
@@ -92,12 +92,10 @@ public class Private {
 				for (String name : scores.keySet()) {
 					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX'00'");
 					String time1 = String.format("%04d-12-%02dT00:00:00-0500", year, day);
-					String time2 = data.get(dayKey).get(starKey).get(name);
 					long t1 = 0;
-					long t2 = 0;
+					long t2 = Long.parseLong(data.get(dayKey).get(starKey).get(name))*1000;
 					try {
 						t1 = format.parse(time1).getTime();
-						t2 = format.parse(time2).getTime();
 					} catch (ParseException e) {
 						System.out.println("Parse error dates");
 						System.exit(1);
