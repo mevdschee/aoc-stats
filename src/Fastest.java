@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class Fastest {
 
 	public static void main(String[] args) throws IOException {
-		int[] years = { 2017 };
+		int[] years = { 2018 };
 		int days = 25;
 		int positions = 100;
 		int stars = 2;
