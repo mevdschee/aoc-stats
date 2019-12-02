@@ -31,7 +31,7 @@ public class Rankings {
 		sql.append("  `name` varchar(255) NOT NULL,\n");
 		sql.append("  PRIMARY KEY (`id`)\n");
 		sql.append(") ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;\n\n");
-		int event = 2017;
+		int event = 2019;
 		int owner_id = 0;
 		JSONObject json = new JSONObject();
 		json.put("event", String.valueOf(event));
