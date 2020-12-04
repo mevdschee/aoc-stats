@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class Analyze {
 
 	public static void main(String[] args) throws IOException {
-		int[] years = { 2015, 2016, 2017, 2018, 2019 };
+		int[] years = { 2015, 2016, 2017, 2018, 2019, 2020 };
 		int days = 25;
 		int positions = 100;
 		int stars = 2;
