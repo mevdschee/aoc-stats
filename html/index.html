@@ -1,182 +1,187 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Scatterplots Advent of Code</title>
-<meta charset="utf-8">
-<style>
+  <title>Scatterplots Advent of Code</title>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font: 10px sans-serif;
+    }
 
-body {
-  font: 10px sans-serif;
-}
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #ccc;
+      shape-rendering: crispEdges;
+    }
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #ccc;
-  shape-rendering: crispEdges;
-}
-.axis text {
-  fill: #ccc;
-}
+    .axis text {
+      fill: #ccc;
+    }
 
-div.tooltip {
-  position: absolute;
-  text-align: center;
-  padding: 2px;
-  font: 12px sans-serif;
-  height: 14px;
-  color: #0f0f23;
-  background: #ccc;
-  border: 0px;
-  border-radius: 4px;
-  pointer-events: none;
-}
-
-</style>
+    div.tooltip {
+      position: absolute;
+      text-align: center;
+      padding: 2px;
+      font: 12px sans-serif;
+      height: 14px;
+      color: #0f0f23;
+      background: #ccc;
+      border: 0px;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+  </style>
 </head>
+
 <body>
-<a href="https://github.com/mevdschee/aoc-stats"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-<script src="d3.min.js"></script>
-<script>
-function graph(year) {
-var margin = {top: 35, right: 20, bottom: 30, left: 60},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+  <a href="https://github.com/mevdschee/aoc-stats"><img style="position: absolute; top: 0; right: 0; border: 0;"
+      src="forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  <script src="d3.min.js"></script>
+  <script>
+    function graph(year) {
+      var margin = { top: 35, right: 20, bottom: 30, left: 60 },
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
-var x = d3.scaleLinear()
-    .range([0, width]);
+      var x = d3.scaleLinear()
+        .range([0, width]);
 
-var y = d3.scaleLinear()
-    .range([height, 0]);
+      var y = d3.scaleLinear()
+        .range([height, 0]);
 
-var color = d3.scaleOrdinal(d3.schemeCategory10);
+      var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-var xAxis = d3.axisBottom(x).ticks(25);
+      var xAxis = d3.axisBottom(x).ticks(25);
 
-var yAxis = d3.axisLeft(y).tickFormat(d3.utcFormat("%H:%M:%S"));;
+      var yAxis = d3.axisLeft(y).tickFormat(d3.utcFormat("%H:%M:%S"));;
 
-var div = d3.select("body").append("div") 
-    .attr("class", "tooltip")               
-    .style("opacity", 0);
+      var div = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
-var svg = d3.select("body").append("div").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .style("background-color", "#0f0f23")
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      var svg = d3.select("body").append("div").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .style("background-color", "#0f0f23")
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("scores.tsv", function(error, data) {
-  if (error) throw error;
+      d3.tsv("scores.tsv", function (error, data) {
+        if (error) throw error;
 
-  data = data.filter(function(d) { return d.year==year; });
+        data = data.filter(function (d) { return d.year == year; });
 
-  data.forEach(function(d) {
-    d.year = +d.year;
-    d.day = +d.day;
-    d.stars = +d.stars;
-    d.position = +d.position;
-    d.name = d.name.substring(d.name.indexOf(' ')+1);
-    d.seconds = +d.seconds*1000;
-  });
+        data.forEach(function (d) {
+          d.year = +d.year;
+          d.day = +d.day;
+          d.stars = +d.stars;
+          d.position = +d.position;
+          d.name = d.name.substring(d.name.indexOf(' ') + 1);
+          d.seconds = +d.seconds * 1000;
+        });
 
-  x.domain(d3.extent([1,25])).nice();
+        x.domain(d3.extent([1, 25])).nice();
 
-  var search = window.location.search;
-  switch(search) {
-    case "?2700": y.domain([0,2700000]).nice(); break;  
-    case "?5400": y.domain([0,5400000]).nice(); break;  
-    case "?10800": y.domain([0,10800000]).nice(); break;  
-    default: y.domain(d3.extent(data, function(d) { return d.seconds; })).nice();
-  }
+        var search = window.location.search;
+        switch (search) {
+          case "?2700": y.domain([0, 2700000]).nice(); break;
+          case "?5400": y.domain([0, 5400000]).nice(); break;
+          case "?10800": y.domain([0, 10800000]).nice(); break;
+          default: y.domain(d3.extent(data, function (d) { return d.seconds; })).nice();
+        }
 
-  svg.append("text")
-      .attr("class", "label")
-      .attr("x", width/2)
-      .attr("y", -15)
-      .style("text-anchor", "middle")
-      .style("fill", "#ccc")
-      .style("font-size","14px")
-      .text("Advent of code "+year);
+        svg.append("text")
+          .attr("class", "label")
+          .attr("x", width / 2)
+          .attr("y", -15)
+          .style("text-anchor", "middle")
+          .style("fill", "#ccc")
+          .style("font-size", "14px")
+          .text("Advent of code " + year);
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("x", width)
-      .attr("y", -6)
-      .style("text-anchor", "end")
-      .text("day");
+        svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .append("text")
+          .attr("class", "label")
+          .attr("x", width)
+          .attr("y", -6)
+          .style("text-anchor", "end")
+          .text("day");
 
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("time")
+        svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("class", "label")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("time")
 
-  svg.selectAll(".dot")
-      .data(data)
-    .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 1.5)
-      .attr("cx", function(d) { return x(-0.25+d.day+(d.stars-1)/2)-6+Math.random() * 12; })
-      .attr("cy", function(d) { return y(d.seconds); })
-      .style("opacity", .70)
-      .style("fill", function(d) { return d.stars==1?'#666699':'#ffee66'; })
-      .on("mouseover", function(d) {
-        d3.select(this).attr("r", 5).style("fill", "red");
-        div.html(d.name+" in "+d.seconds/1000+"s")
-            .style("opacity", 1)
-            .style("left", (d3.event.pageX + 6) + "px")     
-            .style("top", (d3.event.pageY - 10) + "px");   
-        var name = d.name;
-        var matches = svg.selectAll(".dot").filter(function(d) {
-            return d.name === name;
-        }).attr("r", 5).style('fill', 'red');
-      })                  
-      .on("mouseout", function(d) {
-        svg.selectAll(".dot").attr("r", 1.5).style("fill", function(d) { return d.stars==1?'#666699':'#ffee66'; });
-        div.style("opacity", 0);   
+        svg.selectAll(".dot")
+          .data(data)
+          .enter().append("circle")
+          .attr("class", "dot")
+          .attr("r", 1.5)
+          .attr("cx", function (d) { return x(-0.25 + d.day + (d.stars - 1) / 2) - 6 + Math.random() * 12; })
+          .attr("cy", function (d) { return y(d.seconds); })
+          .style("opacity", .70)
+          .style("fill", function (d) { return d.stars == 1 ? '#666699' : '#ffee66'; })
+          .on("mouseover", function (d) {
+            d3.select(this).attr("r", 5).style("fill", "red");
+            div.html(d.name + " in " + d.seconds / 1000 + "s")
+              .style("opacity", 1)
+              .style("left", (d3.event.pageX + 6) + "px")
+              .style("top", (d3.event.pageY - 10) + "px");
+            var name = d.name;
+            var matches = svg.selectAll(".dot").filter(function (d) {
+              return d.name === name;
+            }).attr("r", 5).style('fill', 'red');
+          })
+          .on("mouseout", function (d) {
+            svg.selectAll(".dot").attr("r", 1.5).style("fill", function (d) { return d.stars == 1 ? '#666699' : '#ffee66'; });
+            div.style("opacity", 0);
+          });
+
+        var legend = svg.selectAll(".legend")
+          .data(color.domain())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
       });
+    }
 
-  var legend = svg.selectAll(".legend")
-      .data(color.domain())
-    .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+    graph(2022);
+    graph(2021);
+    graph(2020);
+    graph(2019);
+    graph(2018);
+    graph(2017);
+    graph(2016);
+    graph(2015);
+  </script>
 
-  legend.append("rect")
-      .attr("x", width - 18)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", color);
-
-  legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(function(d) { return d; });
-
-});
-}
-
-graph(2021);
-graph(2020);
-graph(2019);
-graph(2018);
-graph(2017);
-graph(2016);
-graph(2015);
-</script>
-
-<p>Synchronize Y-axis: <a href="?">auto</a> <a href="?2700">00:45:00</a> <a href="?5400">01:30:00</a> <a href="?10800">03:00:00</a></p>
+  <p>Synchronize Y-axis: <a href="?">auto</a> <a href="?2700">00:45:00</a> <a href="?5400">01:30:00</a> <a
+      href="?10800">03:00:00</a></p>
 </body>
+
 </html>
