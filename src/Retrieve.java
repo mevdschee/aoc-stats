@@ -11,7 +11,7 @@ public class Retrieve {
 
 	public static void main(String[] args) throws IOException {
 
-		int[] years = { 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
+		int[] years = { 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 };
 		int days = 25;
 		if (!Paths.get("input").toFile().exists()) {
 			if (!Paths.get("input").toFile().mkdir()) {

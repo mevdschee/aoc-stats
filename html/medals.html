@@ -127,6 +127,7 @@ function graph(year, data) {
 }
 
 $.getJSON("medals.json", function( data ) {
+    graph(2024, data[2024]);
     graph(2023, data[2023]);
     graph(2022, data[2022]);
     graph(2021, data[2021]);
